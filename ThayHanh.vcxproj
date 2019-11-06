@@ -129,7 +129,7 @@
     <ClInclude Include="Product.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shipper.h" />
-    <ClInclude Include="Time.h" />
+    <ClInclude Include="TimeMap.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ThayHanh.rc" />

@@ -1,2 +1,21 @@
 ﻿  Source.cpp
-  ThayHanh.vcxproj -> E:\C++ COde\ThayHanh\x64\Debug\ThayHanh.exe
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(18,13): error C2039: 'clock_t': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(18,20): error C2873: 'clock_t': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(22,13): error C2039: 'asctime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(22,20): error C2873: 'asctime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(23,13): error C2039: 'clock': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(23,18): error C2873: 'clock': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(24,13): error C2039: 'ctime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(24,18): error C2873: 'ctime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(25,13): error C2039: 'difftime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(25,21): error C2873: 'difftime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(26,13): error C2039: 'gmtime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(26,19): error C2873: 'gmtime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(27,13): error C2039: 'localtime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(27,22): error C2873: 'localtime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(28,13): error C2039: 'mktime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(28,19): error C2873: 'mktime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(29,13): error C2039: 'strftime': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(29,21): error C2873: 'strftime': symbol cannot be used in a using-declaration
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(30,13): error C2039: 'time': is not a member of '`global namespace''
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\ctime(30,17): error C2873: 'time': symbol cannot be used in a using-declaration

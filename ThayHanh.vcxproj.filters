@@ -35,7 +35,7 @@
     <ClInclude Include="Product.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="TimeMap.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
