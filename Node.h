@@ -1,6 +1,8 @@
 #pragma once
 #include<vector>
 #include<utility>
+#include<string>
+#include<iostream>
 
 using namespace std;
 
@@ -36,6 +38,7 @@ public:
 	string getName() {
 		return this->name;
 	}
+
 	void setName(string s) {
 		this->name = s;
 	}
@@ -43,5 +46,6 @@ public:
 private:
 	int vertex;
 	string name;
-	vector <pair <int,float>> connectedNode;
+	vector <pair <int,float> > connectedNode;
+
 };

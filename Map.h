@@ -29,7 +29,7 @@ public:
 	}
 
 	void initMap() {
-		int userInput;
+		string userInput;
 		hi:cout << "1: Tao ban do:\n";
 		cout << "Nhap ten file (.IN): ";
 		string fileName;
@@ -43,10 +43,11 @@ public:
 			cout << "1 : Nhap lai ?"<<endl;
 			cout << "0 : Thoat chuong trinh ?" << endl;
 			cin >> userInput;
-			if (userInput) {
-				goto hi;
+			if (userInput =="0") {
+				cout << "Cam on ban da su dung chuong trinh !!!";
+				exit(0);
 			}
-			else exit(0);
+			else goto hi;
 		}
 		else {
 			cout << "Nhap file thanh cong !!!\n";
@@ -68,6 +69,7 @@ public:
 			listofNode[y - 1].push_edge(x, value);
 		}
 
+		cout << "\nBan do cua ban co " << numofVertex << " vi tri !!!" << endl;
 		showMap();
 
 	}
