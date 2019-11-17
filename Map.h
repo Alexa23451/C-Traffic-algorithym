@@ -10,7 +10,8 @@ class Map
 {
 public:
 	Map() {
-
+		numofVertex = 0;
+		numofEdge = 0;
 	}
 	~Map() {
 
