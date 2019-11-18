@@ -23,7 +23,7 @@ using namespace std;
 		for (int i = 0; i < connectedNode.size(); i++) {
 			if (connectedNode[i].first <= vertex) continue;
 
-			cout << vertex << " <-> " << connectedNode[i].first;
+			cout << getName() << " <-> " << connectedNode[i].first;
 			cout << " __Khoang cach: " << connectedNode[i].second << endl;
 		}
 	}

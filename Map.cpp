@@ -1,13 +1,12 @@
 #pragma once
 #include <vector>
-#include <Node.h>
+#include "Node.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "Map.h"
 
 using namespace std;
-
 
 	void Map:: addNode(Node n) {
 		if (!numofEdge) {
@@ -55,7 +54,7 @@ using namespace std;
 		}
 
 		char userInput;
-	hi:cout << "1: Tao ban do:\n";
+	 hi:cout << "1: Tao ban do:\n";
 		cout << "Nhap ten file (.IN): ";
 		string fileName;
 		cin >> fileName;
@@ -72,16 +71,19 @@ using namespace std;
 				goto hi;
 			}
 			else return;
-
 		}
 		else {
 			cout << "Nhap file thanh cong !!!\n";
 		}
 
 		inputMap >> numofVertex >> numofEdge;
-		for (int i = 1; i <= numofEdge; i++) {
+
+		for (int i = 1; i <= numofVertex; i++) {
+			string s;
+			inputMap >> s;
 			Node n;
 			n.setVertex(i);
+			n.setName(s);
 			listofNode.push_back(n);
 		}
 
@@ -93,10 +95,12 @@ using namespace std;
 			listofNode[x - 1].push_edge(y, value);
 			listofNode[y - 1].push_edge(x, value);
 		}
+		
 
-		cout << "Ban do cua ban co " << numofVertex << " vi tri...";
+		cout << "\nBan do cua ban co " << numofVertex << " vi tri...\n";
 		showMap();
 
+		inputMap.close();
 	}
 
 	void Map:: showMap() {
@@ -130,4 +134,4 @@ using namespace std;
 	}
 
 	// you have already signed in it
-	// you must to assign is correctly
+	// you must to assign it correctly

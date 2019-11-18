@@ -11,18 +11,20 @@ public:
 
 	}
 
-	int getValue();
+	float getValue();
 
-	void setValue(float v);
+	void setValue(float);
 
-	int getWeight();
+	float getWeight();
 
-	void setWeight(float w);
+	void setWeight(float);
 
+	int getPos();
 
+	void setPos(int);
 
 private:
 	float value;
 	float weight;
-	Node des;
+	int destinationPos;
 };

@@ -2,7 +2,7 @@
 #include <Node.h>
 #include "Product.h"
 
-	int Product:: getValue() {
+	float Product:: getValue() {
 		return this->value;
 	}
 
@@ -10,10 +10,18 @@
 		this->value = v;
 	}
 
-	int Product::getWeight() {
+	float Product::getWeight() {
 		return this->weight;
 	}
 
 	void Product::setWeight(float w) {
 		this->weight = w;
+	}
+
+	int Product::getPos() {
+		return this->destinationPos;
+	}
+
+	void Product::setPos(int p) {
+		this->destinationPos = p;
 	}

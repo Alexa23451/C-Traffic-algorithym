@@ -16,18 +16,13 @@ public:
 
 	int getVertex();
 	void setVertex(int v);
-
 	void push_edge(int connectedVertex, float distance);
-
 	void showConnectedNode();
-
 	string getName();
-
 	void setName(string s);
 
 private:
 	int vertex;
 	string name;
 	vector <pair <int,float> > connectedNode;
-
 };

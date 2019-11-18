@@ -1,17 +1,29 @@
 #include <iostream>
 #include "Map.h"
-#include <Shipper.h>
+#include "Shipper.h"
+#include <windows.h>
+#include <stdlib.h>
 
 using namespace std;
 
 void menu();
 void mapMenu();
+void mapMenuProcess();
 Map map;
 Shipper shipper;
 
+void clear() {
+	system("CLS");
+}
+
+void pause() {
+	system("PAUSE");
+}
+
 void menu() {
+	cout << "____________Menu______________________ \n\n";
 	cout << "\n---------------------------------------------\n";
-	cout  << "_____________GIAO DIEN CONSOLE___________\n\n";
+	cout << "_____________GIAO DIEN CONSOLE___________\n\n";
 	cout  <<"     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
 	cout  <<"_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
 	cout << "Type 1: Map ---" << map.checkOn()  << endl;
@@ -26,22 +38,25 @@ void menu() {
 	switch (c)
 	{
 	case '1': {
+		clear();
 		mapMenu();
+		mapMenuProcess();
 		break;
 	}
 	case '2': {
-
+		clear();
 		break;
 	}
 	case '3': {
-
+		clear();
 		break;
 	}
 	case '4': {
-
+		clear();
 		break;
 	}
 	case '0': {
+		clear();
 		cout << "Thanks you for using this program ^^";
 		exit(0);
 	}
@@ -52,6 +67,8 @@ void menu() {
 }
 
 void mapMenu() {
+	cout << "______________Menu -> Map_________________\n\n";
+
 	cout << "\n---------------------------------------------\n";
 	cout << "_____________GIAO DIEN MAP___________\n\n";
 	cout << "     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
@@ -64,6 +81,10 @@ void mapMenu() {
 	cout << "Type 6: Edit Location\n";
 	cout << "Type 0: Back\n";
 	cout << "---------------------------------------------\n";
+}
+
+void mapMenuProcess() {
+
 	char c;
 	ahu:cout << "\nYour command : ";
 	cin >> c;
@@ -71,25 +92,32 @@ void mapMenu() {
 	{
 	case '1': {
 		map.initMap();
+		pause();
+		clear();
+		mapMenu();
 		goto ahu;
-		break;
 	}
 	case '2': {
 		map.resetMap();
+		pause();
+		clear();
+		mapMenu();
 		goto ahu;
-		break;
 	}
 	case '3': {
 		map.showMap();
+		pause();
+		clear();
+		mapMenu();
 		goto ahu;
-		break;
 	}
 	case '4': {
 		Node add;
-
 		map.addNode(add);
+		pause();
+		clear();
+		mapMenu();
 		goto ahu;
-		break;
 	}
 	case '5': {
 		int nn;
@@ -97,8 +125,10 @@ void mapMenu() {
 		cin >> nn;
 
 		map.deleteNode(nn);
+		pause();
+		clear();
+		mapMenu();
 		goto ahu;
-		break;
 	}
 	case '6': {
 		int nn;
@@ -106,10 +136,13 @@ void mapMenu() {
 		cin >> nn;
 
 		map.editNode(nn);
+		pause();
+		clear();
+		mapMenu();
 		goto ahu;
-		break;
 	}
 	case '0': {
+		clear();
 		cout << "\nBack....\n";
 		menu();
 		break;
