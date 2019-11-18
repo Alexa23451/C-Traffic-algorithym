@@ -14,34 +14,16 @@ public:
 	}
 	~Node(){}
 
-	int getVertex() {
-		return this->vertex;
-	}
-	void setVertex(int v) {
-		this->vertex = v;
-	}
+	int getVertex();
+	void setVertex(int v);
 
-	void push_edge(int connectedVertex , float distance) {
-		pair <int, float> p(connectedVertex, distance);
-		connectedNode.push_back(p);
-	}
+	void push_edge(int connectedVertex, float distance);
 
-	void showConnectedNode() {
-		for (int i = 0; i < connectedNode.size(); i++) {
-			if (connectedNode[i].first <= vertex) continue;
+	void showConnectedNode();
 
-			cout <<vertex<<" <-> " <<connectedNode[i].first ;
-			cout << " __Khoang cach: " << connectedNode[i].second <<endl;
-		}
-	}
+	string getName();
 
-	string getName() {
-		return this->name;
-	}
-
-	void setName(string s) {
-		this->name = s;
-	}
+	void setName(string s);
 
 private:
 	int vertex;

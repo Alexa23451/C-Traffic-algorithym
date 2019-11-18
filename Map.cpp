@@ -126,8 +126,7 @@ using namespace std;
 	}
 
 	string Map:: checkOn() {
-		string re = numofVertex > 0 ? "OK" : "NOT FOUND";
-		return re;
+		return numofVertex > 0 ? "OK" : "NOT FOUND";
 	}
 
 	// you have already signed in it

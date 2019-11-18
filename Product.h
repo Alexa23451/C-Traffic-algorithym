@@ -4,27 +4,20 @@ class Product
 {
 public:
 	Product() {
-
+		value = 0;
+		weight = 0;
 	}
 	~Product() {
 
 	}
 
-	int getValue() {
-		return this->value;
-	}
+	int getValue();
 
-	void setValue(float v) {
-		this->value = v;
-	}
+	void setValue(float v);
 
-	int getWeight() {
-		return this->weight;
-	}
+	int getWeight();
 
-	void setWeight(float w) {
-		this->weight = w;
-	}
+	void setWeight(float w);
 
 
 

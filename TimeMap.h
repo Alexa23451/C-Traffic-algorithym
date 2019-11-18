@@ -5,9 +5,7 @@ public:
 	TimeMap(){}
 	~TimeMap(){}
 
-	void setTime() {
-
-	}
+	void setTime();
 
 private:
 	float hours;

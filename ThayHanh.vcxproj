@@ -122,7 +122,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Shipper.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TimeMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map.h" />
