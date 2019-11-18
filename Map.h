@@ -83,9 +83,9 @@ public:
 		}
 	}
 
-	void resetMap() {
+	void resetMap();
 
-	}
+	string checkOn();
 
 private:
 	int numofVertex;
