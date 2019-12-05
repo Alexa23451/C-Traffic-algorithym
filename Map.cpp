@@ -133,5 +133,11 @@ using namespace std;
 		return numofVertex > 0 ? "OK" : "NOT FOUND";
 	}
 
+	Map* Map::getInstance() {
+		if (instance == NULL)
+			instance = new Map();
+		return instance;
+	}
+
 	// you have already signed in it
 	// you must to assign it correctly

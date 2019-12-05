@@ -5,10 +5,13 @@ public:
 	TimeMap(){}
 	~TimeMap(){}
 
+	void setHours(int);
+	int getHours();
+	void setMinutes(int);
+	int getMinutes();
 	void setTime();
-
 private:
-	float hours;
-	float minutes;
+	int hours;
+	int minutes;
 };
 

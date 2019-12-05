@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Map.h"
 #include "Shipper.h"
+#include "Node.h"
 #include <windows.h>
 #include <stdlib.h>
 
@@ -9,8 +10,12 @@ using namespace std;
 void menu();
 void mapMenu();
 void mapMenuProcess();
+void mapShipper();
+void mapShipperProcess();
+
 Map map;
 Shipper shipper;
+TimeMap time;
 
 void clear() {
 	system("CLS");
@@ -27,9 +32,8 @@ void menu() {
 	cout  <<"     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
 	cout  <<"_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
 	cout << "Type 1: Map ---" << map.checkOn()  << endl;
-	cout << "Type 2: Shipper\n";
-	cout << "Type 3: Product\n";
-	cout << "Type 4: Main menu\n";
+	cout << "Type 2: Shipper ---" << shipper.checkOn() <<endl;
+	cout << "Type 3: Main menu\n";
 	cout << "Type 0: Exit\n";
 	cout << "---------------------------------------------\n";
 	char c;
@@ -45,13 +49,11 @@ void menu() {
 	}
 	case '2': {
 		clear();
+		mapShipper();
+		mapShipperProcess();
 		break;
 	}
 	case '3': {
-		clear();
-		break;
-	}
-	case '4': {
 		clear();
 		break;
 	}
@@ -151,6 +153,22 @@ void mapMenuProcess() {
 		cout << "\n Wrong command: Type again\n";
 		goto ahu;
 	}
+}
+
+void mapShipper(){
+	cout << "______________Menu -> Shipper_________________\n\n";
+
+	cout << "\n---------------------------------------------\n";
+	cout << "_____________GIAO DIEN SHIPPER_________________\n\n";
+	cout << "     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
+	cout << "---------------------------------------------\n";
+}
+
+
+void mapShipperProcess() {
+//	time.setTime();
+	shipper.setPosition();
+	
 }
 
 int main() {
