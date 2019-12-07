@@ -7,13 +7,12 @@ using namespace std;
 class Map
 {
 public:
-	Map() {
-		numofVertex = 0;
-		numofEdge = 0;
-	}
+	
 	~Map() {
-	//	delete(instance);
+		delete(instance);
 	}
+	vector<Node> getlistOfNode();
+	
 	static Map* getInstance();
 
 	void addNode(Node n);
@@ -35,4 +34,5 @@ private:
 	int numofEdge;
 	vector <Node> listofNode;
 	static Map* instance;
+	Map();
 };

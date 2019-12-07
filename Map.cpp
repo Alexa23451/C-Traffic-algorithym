@@ -111,7 +111,7 @@ using namespace std;
 
 		cout << "_ _ _ _ _ _ Ban do cua ban _ _ _ _ _ _ _\n";
 		for (int i = 0; i < listofNode.size(); i++) {
-			//cout << "Vi tri thu " << i + 1 << endl;
+			cout << "\nVi tri thu " << i + 1 <<" : " << listofNode[i].getName() <<endl;
 			listofNode[i].showConnectedNode();
 		}
 	}
@@ -130,14 +130,29 @@ using namespace std;
 	}
 
 	string Map:: checkOn() {
-		return numofVertex > 0 ? "OK" : "NOT FOUND";
+		return numofVertex > 0 ? "OK" : "NOT FOUND";		
+	}
+
+	Map* Map::instance = NULL;
+
+	Map::Map()
+	{
+		numofEdge = 0;
+		numofVertex = 0;
 	}
 
 	Map* Map::getInstance() {
-		if (instance == NULL)
+		if (instance == NULL) {
 			instance = new Map();
-		return instance;
+		}
+		return instance; 
 	}
+
+	vector<Node> Map::getlistOfNode() {
+		return listofNode;
+	}
+
+	
 
 	// you have already signed in it
 	// you must to assign it correctly

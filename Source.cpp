@@ -2,6 +2,8 @@
 #include "Map.h"
 #include "Shipper.h"
 #include "Node.h"
+#include "Product.h"
+#include "TimeMap.h"
 #include <windows.h>
 #include <stdlib.h>
 
@@ -12,10 +14,11 @@ void mapMenu();
 void mapMenuProcess();
 void mapShipper();
 void mapShipperProcess();
+void productMenu();
+void productMenuProcess();
 
-Map map;
-Shipper shipper;
 TimeMap time;
+Product product;
 
 void clear() {
 	system("CLS");
@@ -26,45 +29,55 @@ void pause() {
 }
 
 void menu() {
-	cout << "____________Menu______________________ \n\n";
-	cout << "\n---------------------------------------------\n";
-	cout << "_____________GIAO DIEN CONSOLE___________\n\n";
-	cout  <<"     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
-	cout  <<"_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
-	cout << "Type 1: Map ---" << map.checkOn()  << endl;
-	cout << "Type 2: Shipper ---" << shipper.checkOn() <<endl;
-	cout << "Type 3: Main menu\n";
-	cout << "Type 0: Exit\n";
-	cout << "---------------------------------------------\n";
-	char c;
+
+	while (1) {
+		cout << "____________Menu______________________ \n\n";
+		cout << "\n---------------------------------------------\n";
+		cout << "_____________GIAO DIEN CONSOLE___________\n\n";
+		cout << "     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
+		cout << "_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
+		cout << "Type 1: Map ---" << Map::getInstance()->checkOn() << endl;
+		cout << "Type 2: Shipper ---" << Shipper::getInstance()->checkOn() << endl;
+		cout << "Type 3: Product in deliver: " <<product.getNumsProduct() <<endl;
+		cout << "Type 4: Start DELIVERY !\n";
+		cout << "Type 0: Exit\n";
+		cout << "---------------------------------------------\n";
+		char c;
 	ahu:cout << "\nYour command : ";
-	cin >> c;
-	switch (c)
-	{
-	case '1': {
-		clear();
-		mapMenu();
-		mapMenuProcess();
-		break;
-	}
-	case '2': {
-		clear();
-		mapShipper();
-		mapShipperProcess();
-		break;
-	}
-	case '3': {
-		clear();
-		break;
-	}
-	case '0': {
-		clear();
-		cout << "Thanks you for using this program ^^";
-		exit(0);
-	}
-	default:
-		cout << "\n Wrong command: Type again\n";
-		goto ahu;
+		cin >> c;
+		switch (c)
+		{
+		case '1': {
+			clear();
+			mapMenu();
+			mapMenuProcess();
+			break;
+		}
+		case '2': {
+			clear();
+			mapShipper();
+			mapShipperProcess();
+			break;
+		}
+		case '3': {
+			clear();
+			productMenu();
+			productMenuProcess();
+			break;
+		}
+		case '4': {
+			clear();
+			break;
+		}
+		case '0': {
+			clear();
+			cout << "Thanks you for using this program ^^";
+			exit(0);
+		}
+		default: {
+			cout << "\n Wrong command: Type again\n";
+		}
+		}
 	}
 }
 
@@ -87,71 +100,72 @@ void mapMenu() {
 
 void mapMenuProcess() {
 
-	char c;
-	ahu:cout << "\nYour command : ";
-	cin >> c;
-	switch (c)
-	{
-	case '1': {
-		map.initMap();
-		pause();
-		clear();
-		mapMenu();
-		goto ahu;
-	}
-	case '2': {
-		map.resetMap();
-		pause();
-		clear();
-		mapMenu();
-		goto ahu;
-	}
-	case '3': {
-		map.showMap();
-		pause();
-		clear();
-		mapMenu();
-		goto ahu;
-	}
-	case '4': {
-		Node add;
-		map.addNode(add);
-		pause();
-		clear();
-		mapMenu();
-		goto ahu;
-	}
-	case '5': {
-		int nn;
-		cout << "\nType number of node u want to delete: ";
-		cin >> nn;
+	while (1) {
+		char c;
+		cout << "\nYour command : ";
+		cin >> c;
+		switch (c)
+		{
+			case '1': {
+				Map::getInstance()->initMap();
+				pause();
+				clear();
+				mapMenu();
+				break;
+			}
+			case '2': {
+				Map::getInstance()->resetMap();
+				pause();
+				clear();
+				mapMenu();
+				break;
+			}
+			case '3': {
+				Map::getInstance()->showMap();
+				pause();
+				clear();
+				mapMenu();
+				break;
+			}
+			case '4': {
+				Node add;
+				Map::getInstance()->addNode(add);
+				pause();
+				clear();
+				mapMenu();
+				break;
+			}
+			case '5': {
+				int nn;
+				cout << "\nType number of node u want to delete: ";
+				cin >> nn;
 
-		map.deleteNode(nn);
-		pause();
-		clear();
-		mapMenu();
-		goto ahu;
-	}
-	case '6': {
-		int nn;
-		cout << "\nType number of node u want to edit: ";
-		cin >> nn;
+				Map::getInstance()->deleteNode(nn);
+				pause();
+				clear();
+				mapMenu();
+				break;
+			}
+			case '6': {
+				int nn;
+				cout << "\nType number of node u want to edit: ";
+				cin >> nn;
 
-		map.editNode(nn);
-		pause();
-		clear();
-		mapMenu();
-		goto ahu;
-	}
-	case '0': {
-		clear();
-		cout << "\nBack....\n";
-		menu();
-		break;
-	}
-	default:
-		cout << "\n Wrong command: Type again\n";
-		goto ahu;
+				Map::getInstance()->editNode(nn);
+				pause();
+				clear();
+				mapMenu();
+				break;
+			}
+			case '0': {
+				clear();
+				cout << "\nBack....\n";
+				menu();
+				return;
+			}
+			default:
+				cout << "\n Wrong command: Type again\n";
+		}
 	}
 }
 
@@ -164,14 +178,80 @@ void mapShipper(){
 	cout << "---------------------------------------------\n";
 }
 
-
 void mapShipperProcess() {
-//	time.setTime();
-	shipper.setPosition();
-	
+	time.setTime();
+	Shipper::getInstance()->setPosition();
+	pause();
+	clear();
+}
+
+void productMenu() {
+	cout << "______________Menu -> Product_________________\n\n";
+
+	cout << "\n---------------------------------------------\n";
+	cout << "_____________GIAO DIEN PRODUCT_________________\n\n";
+	cout << "     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
+	cout << "---------------------------------------------\n";
+	cout << "_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
+	cout << "Type 1: Add Product\n";
+	cout << "Type 2: Edit Product\n";
+	cout << "Type 3: Delete Product\n";
+	cout << "Type 4: Show all Product\n";
+	cout << "Type 0: Back\n";
+	cout << "---------------------------------------------\n";
+}
+
+void productMenuProcess() {
+
+	while (1) {
+		char c;
+		cout << "\nYour command : ";
+		cin >> c;
+		switch (c)
+		{
+			case '1': {
+				product.addProduct();
+				pause();
+				clear();
+				productMenu();
+				break;
+			}
+			case '2': {
+				product.editProduct();
+				pause();
+				clear();
+				productMenu();
+				break;
+			}
+			case '3': {
+				product.deleteProduct();
+				pause();
+				clear();
+				productMenu();
+				break;
+			}
+			case '4': {
+				product.showProduct();
+				pause();
+				clear();
+				productMenu();
+				break;
+			}
+			case '0': {
+				clear();
+				cout << "\nBack....\n";
+				menu();
+				break;
+			}
+			default: {
+				cout << "\n Wrong command: Type again\n";
+			}				
+		}
+	}
 }
 
 int main() {
 	menu();
 	
 }
+

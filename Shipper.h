@@ -9,9 +9,6 @@ using namespace std;
 class Shipper
 {
 public:
-	Shipper() {
-		currentPos = -1;
-	}
 	~Shipper() {
 
 	}
@@ -23,11 +20,14 @@ public:
 	void showPath();
 	void updatePath(Node);
 	string checkOn();
+	static Shipper* getInstance();
 
 private:
+	static Shipper* instance;
 	int currentPos;
 	vector <Node> listPos;
 	vector <Product> listProduct;
 	TimeMap startTime;
 	TimeMap endTime;
+	Shipper();
 };

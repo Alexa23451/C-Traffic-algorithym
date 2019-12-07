@@ -1,6 +1,2 @@
-﻿  Map.cpp
-  Shipper.cpp
-  Source.cpp
-  Generating Code...
-Map.obj : error LNK2001: unresolved external symbol "private: static class Map * Map::instance" (?instance@Map@@0PEAV1@EA)
-E:\GitHub\C-\x64\Debug\ThayHanh.exe : fatal error LNK1120: 1 unresolved externals
+﻿  Shipper.cpp
+  ThayHanh.vcxproj -> E:\GitHub\C-\x64\Debug\ThayHanh.exe

@@ -37,7 +37,7 @@ mark1: cout << "Nhap thoi gian hien tai (Gio): ";
 		goto mark1;
 	}
 
-mark2: cout << "Nhap thoi gian hien tai (Gio): ";
+mark2: cout << "Nhap thoi gian hien tai (Phut): ";
 	try
 	{
 		int x;
