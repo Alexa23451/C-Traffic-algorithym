@@ -2,8 +2,10 @@
 class TimeMap
 {
 public:
-	TimeMap(){}
+
 	~TimeMap(){}
+
+	static TimeMap* getInstance();
 
 	void setHours(int);
 	int getHours();
@@ -11,7 +13,9 @@ public:
 	int getMinutes();
 	void setTime();
 private:
+	static TimeMap* instance;
 	int hours;
 	int minutes;
+	TimeMap();
 };
 

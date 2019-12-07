@@ -8,45 +8,6 @@
 
 using namespace std;
 
-	void Map:: addNode(Node n) {
-		if (!numofEdge) {
-			cout << "No map to add Node :((((\n";
-			cout << "Go to init Map ? 1 / 0 :";
-			char c;
-			cin >> c;
-			if (c == '1') {
-				initMap();
-			}
-			return;
-		}
-	}
-
-	void Map:: deleteNode(int i) {
-		if (!numofEdge) {
-			cout << "No map delete Node :((((\n";
-			cout << "Go to init Map ? 1 / 0 :";
-			char c;
-			cin >> c;
-			if (c == '1') {
-				initMap();
-			}
-			return;
-		}
-	}
-
-	void Map:: editNode(int i) {
-		if (!numofEdge) {
-			cout << "No map to edit Node :((((\n";
-			cout << "Go to init Map ? 1 / 0 :";
-			char c;
-			cin >> c;
-			if (c == '1') {
-				initMap();
-			}
-			return;
-		}
-	}
-
 	void Map:: initMap() {
 		if (numofVertex) {
 			cout << "Map has alreaddy inited ! Reset map first to init\n";
@@ -151,8 +112,3 @@ using namespace std;
 	vector<Node> Map::getlistOfNode() {
 		return listofNode;
 	}
-
-	
-
-	// you have already signed in it
-	// you must to assign it correctly

@@ -15,12 +15,6 @@ public:
 	
 	static Map* getInstance();
 
-	void addNode(Node n);
-
-	void deleteNode(int i);
-
-	void editNode(int i);
-
 	void initMap();
 
 	void showMap();

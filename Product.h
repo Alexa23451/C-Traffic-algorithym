@@ -15,29 +15,23 @@ public:
 
 	float getValue();
 
-	void setValue(float);
+	void setValue(int);
 
 	float getWeight();
 
-	void setWeight(float);
+	void setWeight(int);
 
 	int getPos();
 
 	void setPos(int);
 
-	int getNumsProduct();
+	void setName(string);
 
-	void addProduct();
-
-	void editProduct();
-
-	void deleteProduct();
-
-	void showProduct();
+	string getName();
 
 private:
-	float value;
-	float weight;
+	int value;
+	int weight;
 	int destinationPos;
-	static int number;
+	string name;
 };

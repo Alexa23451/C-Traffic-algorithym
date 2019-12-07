@@ -4,6 +4,19 @@
 
 using namespace std;
 
+TimeMap* TimeMap::instance = NULL;
+
+TimeMap* TimeMap::getInstance() {
+	if (instance == NULL) {
+		instance = new TimeMap();
+	}
+	return instance;
+}
+
+TimeMap::TimeMap() {
+	hours = 0;
+	minutes = 0;
+}
 
 void TimeMap::setHours(int h) {
 	this->hours = h;

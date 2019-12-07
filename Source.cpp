@@ -17,9 +17,6 @@ void mapShipperProcess();
 void productMenu();
 void productMenuProcess();
 
-TimeMap time;
-Product product;
-
 void clear() {
 	system("CLS");
 }
@@ -38,7 +35,7 @@ void menu() {
 		cout << "_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
 		cout << "Type 1: Map ---" << Map::getInstance()->checkOn() << endl;
 		cout << "Type 2: Shipper ---" << Shipper::getInstance()->checkOn() << endl;
-		cout << "Type 3: Product in deliver: " <<product.getNumsProduct() <<endl;
+		cout << "Type 3: Product in deliver: " <<Shipper::getInstance()->getNumsProduct() <<endl;
 		cout << "Type 4: Start DELIVERY !\n";
 		cout << "Type 0: Exit\n";
 		cout << "---------------------------------------------\n";
@@ -55,12 +52,20 @@ void menu() {
 		}
 		case '2': {
 			clear();
+			if (Map::getInstance()->checkOn() == "NOT FOUND") {
+				cout << "\nNhap thong tin Map truoc !!!\n";
+				break;
+			}
 			mapShipper();
 			mapShipperProcess();
 			break;
 		}
 		case '3': {
 			clear();
+			if (Map::getInstance()->checkOn() == "NOT FOUND") {
+				cout << "\nNhap thong tin Map truoc !!!\n";
+				break;
+			}
 			productMenu();
 			productMenuProcess();
 			break;
@@ -91,15 +96,11 @@ void mapMenu() {
 	cout << "Type 1: Init Map\n";
 	cout << "Type 2: Reset Map\n";
 	cout << "Type 3: Show Map\n";
-	cout << "Type 4: Add Location\n";
-	cout << "Type 5: Delete Location\n";
-	cout << "Type 6: Edit Location\n";
 	cout << "Type 0: Back\n";
 	cout << "---------------------------------------------\n";
 }
 
 void mapMenuProcess() {
-
 	while (1) {
 		char c;
 		cout << "\nYour command : ";
@@ -127,36 +128,6 @@ void mapMenuProcess() {
 				mapMenu();
 				break;
 			}
-			case '4': {
-				Node add;
-				Map::getInstance()->addNode(add);
-				pause();
-				clear();
-				mapMenu();
-				break;
-			}
-			case '5': {
-				int nn;
-				cout << "\nType number of node u want to delete: ";
-				cin >> nn;
-
-				Map::getInstance()->deleteNode(nn);
-				pause();
-				clear();
-				mapMenu();
-				break;
-			}
-			case '6': {
-				int nn;
-				cout << "\nType number of node u want to edit: ";
-				cin >> nn;
-
-				Map::getInstance()->editNode(nn);
-				pause();
-				clear();
-				mapMenu();
-				break;
-			}
 			case '0': {
 				clear();
 				cout << "\nBack....\n";
@@ -179,7 +150,7 @@ void mapShipper(){
 }
 
 void mapShipperProcess() {
-	time.setTime();
+	TimeMap::getInstance()->setTime();
 	Shipper::getInstance()->setPosition();
 	pause();
 	clear();
@@ -202,7 +173,6 @@ void productMenu() {
 }
 
 void productMenuProcess() {
-
 	while (1) {
 		char c;
 		cout << "\nYour command : ";
@@ -210,28 +180,28 @@ void productMenuProcess() {
 		switch (c)
 		{
 			case '1': {
-				product.addProduct();
+				Shipper::getInstance()->addProduct();
 				pause();
 				clear();
 				productMenu();
 				break;
 			}
 			case '2': {
-				product.editProduct();
+				Shipper::getInstance()->editProduct();
 				pause();
 				clear();
 				productMenu();
 				break;
 			}
 			case '3': {
-				product.deleteProduct();
+				Shipper::getInstance()->deleteProduct();
 				pause();
 				clear();
 				productMenu();
 				break;
 			}
 			case '4': {
-				product.showProduct();
+				Shipper::getInstance()->showListProduct();
 				pause();
 				clear();
 				productMenu();

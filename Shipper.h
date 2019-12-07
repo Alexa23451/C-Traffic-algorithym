@@ -12,22 +12,26 @@ public:
 	~Shipper() {
 
 	}
-	
 	void setPosition();
 	int getPosition();
+
+	
 	void showListProduct();
-	void updateListProduct();
+	void editProduct();
+	void deleteProduct();
+	void addProduct();
+
 	void showPath();
 	void updatePath(Node);
 	string checkOn();
 	static Shipper* getInstance();
+	static int getNumsProduct();
 
 private:
 	static Shipper* instance;
 	int currentPos;
+	static int number;
 	vector <Node> listPos;
 	vector <Product> listProduct;
-	TimeMap startTime;
-	TimeMap endTime;
 	Shipper();
 };
