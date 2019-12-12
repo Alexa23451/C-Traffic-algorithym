@@ -1,3 +1,40 @@
-﻿  Source.cpp
-E:\GitHub\C-\Source.cpp(43,5): warning C4102: 'ahu': unreferenced label
+﻿  Shipper.cpp
+E:\GitHub\C-\Shipper.cpp(189,10): warning C4129: 'E': unrecognized character escape sequence
+E:\GitHub\C-\Shipper.cpp(215,10): warning C4129: 'D': unrecognized character escape sequence
+E:\GitHub\C-\Shipper.cpp(244,36): warning C4305: '=': truncation from 'const int' to 'float'
+E:\GitHub\C-\Shipper.cpp(252,16): warning C4244: '=': conversion from 'const _Ty2' to 'int', possible loss of data
+E:\GitHub\C-\Shipper.cpp(252,16): warning C4244:         with
+E:\GitHub\C-\Shipper.cpp(252,16): warning C4244:         [
+E:\GitHub\C-\Shipper.cpp(252,16): warning C4244:             _Ty2=float
+E:\GitHub\C-\Shipper.cpp(252,16): warning C4244:         ]
+E:\GitHub\C-\Shipper.cpp(258,16): warning C4244: '=': conversion from '_Ty2' to 'int', possible loss of data
+E:\GitHub\C-\Shipper.cpp(258,16): warning C4244:         with
+E:\GitHub\C-\Shipper.cpp(258,16): warning C4244:         [
+E:\GitHub\C-\Shipper.cpp(258,16): warning C4244:             _Ty2=float
+E:\GitHub\C-\Shipper.cpp(258,16): warning C4244:         ]
+E:\GitHub\C-\Shipper.cpp(260,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\GitHub\C-\Shipper.cpp(274,28): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\GitHub\C-\Shipper.cpp(291,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\GitHub\C-\Shipper.cpp(292,49): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:             _Ty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         and
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:             _Ty2=float
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         ]
+E:\GitHub\C-\Shipper.cpp(235): message : see reference to function template instantiation 'std::pair<int,float>::pair<int,int,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+E:\GitHub\C-\Shipper.cpp(235): message :         with
+E:\GitHub\C-\Shipper.cpp(235): message :         [
+E:\GitHub\C-\Shipper.cpp(235): message :             _Other1=int,
+E:\GitHub\C-\Shipper.cpp(235): message :             _Other2=int
+E:\GitHub\C-\Shipper.cpp(235): message :         ]
+E:\GitHub\C-\Shipper.cpp(235): message : see reference to function template instantiation 'std::pair<int,float>::pair<int,int,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+E:\GitHub\C-\Shipper.cpp(235): message :         with
+E:\GitHub\C-\Shipper.cpp(235): message :         [
+E:\GitHub\C-\Shipper.cpp(235): message :             _Other1=int,
+E:\GitHub\C-\Shipper.cpp(235): message :             _Other2=int
+E:\GitHub\C-\Shipper.cpp(235): message :         ]
   ThayHanh.vcxproj -> E:\GitHub\C-\x64\Debug\ThayHanh.exe

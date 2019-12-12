@@ -2,6 +2,7 @@
 #include <string.h>
 #include <iostream>
 #include <stdio.h>
+#include <queue>
 #include "Shipper.h"
 #include "Node.h"
 #include "Map.h"
@@ -59,6 +60,10 @@ int Shipper::getPosition() {
 	return this->currentPos;
 }
 
+int Shipper::getStoreDeliver() {
+	return storeDeliver;
+}
+
 void Shipper::showListProduct() {
 	if (!listProduct.size()) {
 		cout << "\n Have no Product !! \n";
@@ -69,7 +74,7 @@ void Shipper::showListProduct() {
 	for (int i = 0; i < listProduct.size(); i++) {
 		cout << "\nProduct " << i+1 << endl;
 		cout << "Name : " << listProduct[i].getName() << endl;
-		cout << "Weight : " << listProduct[i].getWeight() << "Gr" << endl;
+		cout << "Weight : " << listProduct[i].getWeight() << "Kg" << endl;
 		cout << "Value : " << listProduct[i].getValue() << "Vnd" << endl;
 		cout << "Destination : " << "Duong " << v[listProduct[i].getPos()-1].getName() << endl;
 	}
@@ -79,6 +84,19 @@ void Shipper::addProduct() {
 	int w, v, d;
 	string s;
 	Product p;
+	vector<Node> vv = Map::getInstance()->getlistOfNode();
+	for (int i = 0; i < vv.size(); i++) {
+		cout << "\nChoise " << i + 1 << " : " << vv[i].getName() << " !!!";
+	}
+
+	cout << "\nType Destination ::: ";
+	cin >> d;
+
+	if (d < 1 || d > vv.size() || d == getPosition()) {
+		cout << "Wrong request ___Again \n";
+		return;
+	}
+	p.setPos(d);
 
 	fflush(stdin);
 	cout << "Type Name :(No space) ";
@@ -86,10 +104,10 @@ void Shipper::addProduct() {
 
 	p.setName(s);
 	
-	cout << "Type Weight : (100gr - 10000gr): "; 
+	cout << "Type Weight : (1kg - 10kg): "; 
 	cin >> w;
 
-	if (w < 100 || w>10000) {
+	if (w < 1 || w>10) {
 		cout << "Wrong request ___Again \n";
 		return;
 	}
@@ -103,21 +121,6 @@ void Shipper::addProduct() {
 	}
 	p.setValue(v);
 
-	vector<Node> vv = Map::getInstance()->getlistOfNode();
-
-	for (int i = 0; i < vv.size(); i++) {
-		cout << "\nChoise " << i+1 << " : " << vv[i].getName() << " !!!";
-	}
-
-	cout << "\nType Destination ::: ";
-	cin >> d;
-
-	if (d < 1 || d > vv.size()) {
-		cout << "Wrong request ___Again \n";
-		return;
-	}
-	p.setPos(d);
-
 	listProduct.push_back(p);
 	cout << "\nAdding Product Succesfully\n";
 	number++;
@@ -130,6 +133,9 @@ void Shipper::editProduct() {
 	}
 
 	vector<Node> vv = Map::getInstance()->getlistOfNode();
+	for (int i = 0; i < vv.size(); i++) {
+		cout << "\nChoise " << i + 1 << " : " << vv[i].getName() << " !!!";
+	}
 	int temp;
 
 	showListProduct();
@@ -149,10 +155,10 @@ void Shipper::editProduct() {
 	cout << "Type Name :(No space) ";
 	cin >> s;
 
-	cout << "Type Weight : (100gr - 10000gr): ";
+	cout << "Type Weight : (1 - 10kg): ";
 	cin >> w;
 
-	if (w < 100 || w>10000) {
+	if (w < 1 || w>10) {
 		cout << "Wrong request ___Again \n";
 		return;
 	}
@@ -190,6 +196,9 @@ void Shipper::deleteProduct() {
 	}
 
 	vector<Node> vv = Map::getInstance()->getlistOfNode();
+	for (int i = 0; i < vv.size(); i++) {
+		cout << "\nChoise " << i + 1 << " : " << vv[i].getName() << " !!!";
+	}
 	int temp;
 
 	showListProduct();
@@ -208,11 +217,98 @@ void Shipper::deleteProduct() {
 }
 
 void Shipper::showPath() {
+	if (getPosition() == -1) {
+		cout << "\nVui long nhap thong tin, vi tri cua Shipper !!!\n\n";
+		return;
+	}
 
+	// su dung thuat toan dijkstra
+	int n = Map::getInstance()->getNumsVertex();
+	typedef pair<int, float> ii;
+	vector<Node> aa = Map::getInstance()->getlistOfNode();
+	
+	vector<ii> a[20];
+
+	for (int i = 0; i < aa.size(); i++) {
+		a[aa[i].getVertex()] = aa[i].getConnectedNode();
+	}
+	for (int i = 1; i <= n; i++) a[i].push_back(ii(0, 0)); 
+	
+	const int oo = 1000111000;
+	float d[100];
+
+	priority_queue < ii , vector<ii> , greater<ii> > pq;
+	int i, u, v;
+	int du, uv;
+	
+	for (i = 1; i <= n; i++) d[i] = oo;
+
+	d[1] = 0;
+	int iii = getPosition();
+	pq.push(ii(iii, 0));
+
+	while (pq.size()) {
+		u = pq.top().first;
+		du = pq.top().second;
+		pq.pop();
+		if (du != d[u]) continue;
+
+		for (i = 0; v = a[u][i].first; i++)
+		{
+			uv = a[u][i].second;
+			if (d[v] > du + uv) {
+				d[v] = du + uv;
+				pq.push(ii(v , d[v]));
+			}
+		}
+	}
+
+	for (i = 1; i <= n; i++) {
+		if (i == iii) continue;
+		cout << "Duong di ngan nhat tu " << aa[iii].getName() << " den " << aa[i-1].getName() << " la " << d[i] << endl;
+	}
+		
 }
 
-void Shipper::updatePath(Node posAdd) {
+void Shipper::showBagbest() {
+	int x = listProduct.size();
+	int y = storeDeliver;
 
+	int** bagBest = new int* [x+1];
+	for (int i = 0; i <= x; i++)
+		bagBest[i] = new int[y+1];
+
+	for (int i = 0; i <= x; i++) {
+		for (int j = 0; j <= y; j++) {
+			bagBest[i][j] = 0;
+		}
+	}
+
+	int max = 0;
+	for (int i = 1; i <= x; i++) {
+		for (int j = 0; j <= y; j++) {
+			if (listProduct[i-1].getWeight() <= j) {
+				int temp = listProduct[i-1].getWeight();
+				bagBest[i][j] = listProduct[i-1].getValue() + bagBest[i - 1][j - temp];
+				if (max < bagBest[i][j]) {
+					max = bagBest[i][j];
+				}
+			}
+			else {
+				bagBest[i][j] = bagBest[i - 1][j];
+			}
+		}
+	}
+
+	for (int i = 0; i <= x; i++) {
+		for (int j = 0; j <= y; j++) {
+			cout<<bagBest[i][j]<<" " ;
+		}
+		cout << endl;
+	}
+
+	cout << "\nSo tien lon nhat thu duoc la " << max <<" VND " << endl;
+	delete bagBest;
 }
 
 int Shipper::getNumsProduct() {

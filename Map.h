@@ -22,6 +22,8 @@ public:
 	void resetMap();
 
 	string checkOn();
+
+	int getNumsVertex();
 	
 private:
 	int numofVertex;

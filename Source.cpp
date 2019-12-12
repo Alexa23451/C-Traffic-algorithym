@@ -1,9 +1,9 @@
-#include <iostream>
 #include "Map.h"
 #include "Shipper.h"
 #include "Node.h"
 #include "Product.h"
 #include "TimeMap.h"
+#include <iostream>
 #include <windows.h>
 #include <stdlib.h>
 
@@ -16,6 +16,8 @@ void mapShipper();
 void mapShipperProcess();
 void productMenu();
 void productMenuProcess();
+void analyzeMenu();
+void analyzeMenuProcess();
 
 void clear() {
 	system("CLS");
@@ -71,7 +73,14 @@ void menu() {
 			break;
 		}
 		case '4': {
+			//if (Map::getInstance()->checkOn() != "OK" || Shipper::getInstance()->checkOn() != "OK"
+			//	|| !Shipper::getInstance()->getNumsProduct()) {
+			//	cout << "\nNhap du cac thong tin truoc !!!\n";
+			//	break;
+			//}
 			clear();
+			analyzeMenu();
+			analyzeMenuProcess();
 			break;
 		}
 		case '0': {
@@ -220,8 +229,58 @@ void productMenuProcess() {
 	}
 }
 
+void analyzeMenu() {
+	cout << "______________Menu -> Delivery_________________\n\n";
+
+	cout << "\n---------------------------------------------\n";
+	cout << "_____________GIAO DIEN Delivery___________\n\n";
+	cout << "     NHOM 1: BAI TOAN NGUOI GIAO HANG    \n";
+	cout << "_ _ _ _  Xin moi nhap chuc nang _ _ _ _ \n";
+	cout << "Type 1: Best Value\n";
+	cout << "Type 2: Best Road\n";
+	cout << "Type 0: Back\n";
+	cout << "---------------------------------------------\n";
+}
+
+void analyzeMenuProcess() {
+	while (1) {
+		char c;
+		cout << "\nYour command : ";
+		cin >> c;
+		switch (c)
+		{
+		case '1': {
+			Shipper::getInstance()->showBagbest();
+			pause();
+			clear();
+			analyzeMenu();
+			break;
+		}
+		case '2': {
+			Shipper::getInstance()->showPath();
+			pause();
+			clear();
+			analyzeMenu();
+			break;
+		}
+		case '0': {
+			clear();
+			cout << "\nBack....\n";
+			menu();
+			break;
+		}
+		default: {
+			cout << "\n Wrong command: Type again\n";
+		}
+		}
+	}
+}
+
 int main() {
-	menu();
+	menu();	
+
+
+
 	
 }
 

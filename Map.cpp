@@ -68,15 +68,38 @@ using namespace std;
 		if (!numofEdge) {
 			cout << "No map to show :((((\n";
 			return;
-		}
+		}		
 
-		cout << "_ _ _ _ _ _ Ban do cua ban _ _ _ _ _ _ _\n";
-		for (int i = 0; i < listofNode.size(); i++) {
-			cout << "\nVi tri thu " << i + 1 <<" : " << listofNode[i].getName() <<endl;
+		cout << "_ _ _ _ _ _ Ban do cua ban _ _ _ _ _ _ _(Don vi: Km)\n\n";
+		cout << "              ";
+		for (int i = 0; i < numofVertex; i++) {
+			int temp = (17 - listofNode[i].getName().length()) /2;
+			cout << "|";
+			for (int j = 0; j < temp; j++) cout << " ";
+			cout<< listofNode[i].getName();
+
+			temp += listofNode[i].getName().length() % 2 == 0 ? 1 : 0;
+			for (int j = 0; j < temp; j++) cout << " ";
+		} 
+		
+		cout << "\n-------------------------------------------------------------------------------------------------------------------\n";
+		for (int i = 0; i < numofVertex; i++) {
+			int temp = 14 - listofNode[i].getName().length();
+			cout << listofNode[i].getName();
+			for (int j = 0; j < temp; j++) {
+				cout << " ";
+			}
+
+			cout << "|";
 			listofNode[i].showConnectedNode();
+			cout << "\n---------------------------------------------------------------------------------------------------------------\n";
 		}
 	}
 
+	int Map::getNumsVertex() {
+		return numofVertex;
+	}
+	
 	void Map:: resetMap() {
 		if (!numofEdge) {
 			cout << "No map to reset :((((\n";
