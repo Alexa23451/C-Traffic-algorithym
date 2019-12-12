@@ -278,9 +278,5 @@ void analyzeMenuProcess() {
 
 int main() {
 	menu();	
-
-
-
-	
 }
 
